@@ -4,7 +4,6 @@ import './App.css';
 import Wrapper from "./components/Wrapper";
 import meChars from "./meChars.json";
 import CharCard from "./components/CharCard/CharCard.js";
-import ReactDOM from 'react-dom'
 import UI_Display_bottom from './UI_Display_bottom.jpeg'
 
 
@@ -68,9 +67,7 @@ class App extends Component {
   // Map over this.state.meChars and render a FriendCard component for each friend object
   render() {
     return (
-		
       <Wrapper>
-
         {this.state.meChars.map(meChar => (
           <CharCard
             setClicked={this.setClicked}
