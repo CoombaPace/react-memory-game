@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.1.2",
+    "jquery": "^3.4.1",
     "jquery-backstretch": "^2.1.17",
     "rc-progress": "^2.4.1",
     "react": "^16.8.6",
