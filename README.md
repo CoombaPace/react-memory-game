@@ -1,6 +1,6 @@
 # Mass Effect Memory Game
  Click each Character, but remember which! Click the same one twice and you lose!
-(Play)[https://coombapace.github.io/react-memory-game/]
+[Play the Game](https://coombapace.github.io/react-memory-game/)
  ### Built with ReactJS, Material UI, and jQuery.
 
 ----

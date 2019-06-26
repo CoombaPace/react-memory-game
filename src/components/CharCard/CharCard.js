@@ -17,7 +17,7 @@ const styles = {
     paddingTop: 5,
     paddingBottom: 5,
     margin: 20,
-    boxShadow: `1px 3px 1px #9ABCC2`,
+    // boxShadow: `1px 3px 1px #9ABCC2`,
 
   },
   media: {
