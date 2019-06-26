@@ -1,6 +1,8 @@
 # Mass Effect Memory Game
  Click each Character, but remember which! Click the same one twice and you lose!
 
+ ### Built with ReactJS, Material UI, and jQuery.
+
 ----
 ## Obligatory React Fine Print:
 
