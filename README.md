@@ -1,3 +1,9 @@
+# Mass Effect Memory Game
+ Click each Character, but remember which! Click the same one twice and you lose!
+
+----
+## Obligatory React Fine Print:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

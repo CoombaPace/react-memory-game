@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import { Line } from 'rc-progress';
 import './App.css';
 import Wrapper from "./components/Wrapper";
 import meChars from "./meChars.json";
 import CharCard from "./components/CharCard/CharCard.js";
+import ReactDOM from 'react-dom'
+import UI_Display_bottom from './UI_Display_bottom.jpeg'
+
+
 
 let topScore = 0;
-let guessesCorrect = 0;
-// let hearts = 0;
+let guessesCorrect = 1;
 let message = "";
 
 //sets state for our components
@@ -24,8 +28,8 @@ class App extends Component {
 
 		if (cardClicked[0].clicked) {
 
-			guessesCorrect = 0;
-			message = 'Whoops. Start over';
+			guessesCorrect = 1;
+			message = "You already clicked this! Start again.";
 
 			for (let i = 0; i < meChars.length; i++) {
 				meChars[i].clicked = false;
@@ -39,15 +43,12 @@ class App extends Component {
     } else {
 			cardClicked[0].clicked = true;
 
-			guessesCorrect = guessesCorrect + 1;
-			message = "Good Job!"
+			guessesCorrect = guessesCorrect + 7.2;
+			message = "You did it! 12/12 correct!"
 
 			if (guessesCorrect > topScore) {
 				topScore = guessesCorrect;
-				// hearts++;
-				// this.setState({hearts});
 				this.setState({topScore});
-				// this.renderHearts();
 			}
 
 			meChars.sort((a, b) => {
@@ -63,10 +64,13 @@ class App extends Component {
 
 	};
 
+	
   // Map over this.state.meChars and render a FriendCard component for each friend object
   render() {
     return (
+		
       <Wrapper>
+
         {this.state.meChars.map(meChar => (
           <CharCard
             setClicked={this.setClicked}
@@ -74,9 +78,18 @@ class App extends Component {
             key={meChar.id}
             image={meChar.image}
             name={meChar.name}
-            
           />
-        ))}
+		))}
+		<div class="bottomComponents">
+			<Line 
+				className="progress-bar"
+				percent={this.state.guessesCorrect}
+				trailWidth="12" 
+				strokeWidth="12" 
+				strokeColor="#9ABCC2"
+				strokeLinecap="square" />
+			<img class="bottom" src={UI_Display_bottom} alt="headup_display" />;
+		</div>
       </Wrapper>
     );
   }

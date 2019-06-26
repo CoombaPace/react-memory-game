@@ -12,10 +12,14 @@ const styles = {
   card: {
     width: 190,
     maxWidth: 345,
-    paddingLeft: 10,
-    paddingRight:15,
-    paddingTop:15,
-    paddingBottom: 10,
+    
+    paddingLeft: 2,
+    paddingRight: 5,
+    paddingTop: 5,
+    paddingBottom: 2,
+    margin: 20,
+    boxShadow: `1px 3px 1px #9ABCC2`,
+
   },
   media: {
     height: 240,

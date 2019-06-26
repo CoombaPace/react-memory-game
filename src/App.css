@@ -23,6 +23,20 @@
   color: #61dafb;
 }
 
+.bottomComponents {
+  margin: 0 auto;
+  text-align: center;
+}
+.progress-bar {
+  border-radius: 2rem;
+  border: .2rem solid rgba(7, 55, 77, 0.673);
+  height: 20%;
+}
+
+.bottom {
+  width: 600px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
