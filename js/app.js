@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	$.backstretch([
-          "images/shepardsFistBump.jpg"
+          "./images/shepardsFistBump.jpg"
           
         ], {
             duration: 10000,
