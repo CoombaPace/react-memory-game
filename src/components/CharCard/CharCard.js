@@ -12,7 +12,6 @@ const styles = {
   card: {
     width: 190,
     maxWidth: 345,
-    
     paddingLeft: 2,
     paddingRight: 5,
     paddingTop: 5,
