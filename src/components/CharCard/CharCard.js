@@ -11,7 +11,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 const styles = {
   card: {
     width: 190,
-    maxWidth: 345,
+    maxWidth: 320,
     paddingLeft: 2,
     paddingRight: 5,
     paddingTop: 5,
