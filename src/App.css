@@ -40,6 +40,10 @@
   height: 20%;
 }
 
+figure {
+  position: fixed;
+}
+
 .bottom {
   width: 600px;
 }

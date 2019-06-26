@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { Line } from 'rc-progress';
 import './App.css';
 import Wrapper from "./components/Wrapper";
+import BackgroundSlider from './components/BackGroundSlider/BackgroundSlider.js'
 import meChars from "./meChars.json";
 import CharCard from "./components/CharCard/CharCard.js";
 import UI_Display_bottom from './UI_Display_bottom.jpeg'
+import image1 from './images/shepardsFistBump.jpg'
+
 
 
 
@@ -77,7 +80,7 @@ class App extends Component {
             name={meChar.name}
           />
 		))}
-		<div class="bottomComponents">
+		<div className="bottomComponents">
 			<Line 
 				className="progress-bar"
 				percent={this.state.guessesCorrect}
@@ -85,8 +88,11 @@ class App extends Component {
 				strokeWidth="12" 
 				strokeColor="#9ABCC2"
 				strokeLinecap="square" />
-			<img class="bottom" src={UI_Display_bottom} alt="headup_display" />;
+			<img className="bottom" src={UI_Display_bottom} alt="headup_display" />;
 		</div>
+		<BackgroundSlider
+			images={[image1]}
+			duration={10} transition={2} />
       </Wrapper>
     );
   }
