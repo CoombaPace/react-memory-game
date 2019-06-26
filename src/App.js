@@ -43,7 +43,7 @@ class App extends Component {
     } else {
 			cardClicked[0].clicked = true;
 
-			guessesCorrect = guessesCorrect + 7.2;
+			guessesCorrect = guessesCorrect + 7.4;
 			message = "You did it! 12/12 correct!"
 
 			if (guessesCorrect > topScore) {
