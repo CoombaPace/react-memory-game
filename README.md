@@ -1,10 +1,10 @@
 # Mass Effect Memory Game
  Click each Character, but remember which! Click the same one twice and you lose!
 [Play the Game](https://coombapace.github.io/react-memory-game/)
- ### Built with ReactJS, Material UI, and jQuery.
+ ### Built with ReactJS, Material UI.
 
  ## Code Highlights
- I love jQuery Backstretch, but it won't render in this React App. I found [Artem Artemov's Background Slider](https://github.com/artemartemov/react-background-slider), which is great. But it's best for a page with little content, and in this case the content overflowed the backstretch.
+ I love jQuery Backstretch, but it's a suboptimal solution for a React app given how React interacts with the DOM vs. jQuery. I found [Artem Artemov's Background Slider](https://github.com/artemartemov/react-background-slider), which is great. But it's best for a page with little content, and in this case the content overflowed the backstretch.
  I cloned Artem's repo, created the component inside this App and changed the CSS. Quite fun!
  Thank you Mr. Artemov!
 ----
