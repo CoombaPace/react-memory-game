@@ -2,13 +2,13 @@
   {
     "id": 1,
     "name": "Urdnot Wrex",
-    "image": "/images/Wrex.png",
+    "image": "./images/Wrex.png",
     "clicked": false
   },
   {
     "id": 2,
     "name": "Garrus",
-    "image": "/images/Garrus.png",
+    "image": "./images/Garrus.png",
     "clicked": false
   },
   {
