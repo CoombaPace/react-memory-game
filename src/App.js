@@ -7,6 +7,7 @@ import meChars from "./meChars.json";
 import CharCard from "./components/CharCard/CharCard.js";
 import UI_Display_bottom from './UI_Display_bottom.jpeg'
 import image1 from './images/shepardsFistBump.jpg'
+import image2 from './images/chars.jpg'
 
 
 
@@ -91,7 +92,7 @@ class App extends Component {
 			<img className="bottom" src={UI_Display_bottom} alt="headup_display" />;
 		</div>
 		<BackgroundSlider
-			images={[image1]}
+			images={[image1, image2]}
 			duration={10} transition={2} />
       </Wrapper>
     );
