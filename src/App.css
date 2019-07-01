@@ -7,9 +7,14 @@
 #mainGrid {
   flex-wrap: nowrap;
 }
-/* .MuiGrid-container {
-  flex-wrap: noWrap;
-} */
+
+#bottomGrid {
+  flex-wrap: nowrap;
+}
+
+.centralBottomGrid {
+  margin: 0px;
+}
 
 .App {
   text-align: center;
@@ -43,24 +48,20 @@
 .progress-bar {
   border-radius: 2rem;
   border: .2rem solid rgba(7, 55, 77, 0.673);
-  height: 20%;
+  height: 80%;
 }
 
 figure {
   position: fixed;
 }
 
+.weapons {
+  float: right;
+}
+
 .bottom {
   width: 600px;
 }
-
-/* .leftSide {
-  float: left;
-}
-
-.rightSide {
-  float: right;
-} */
 
 @keyframes App-logo-spin {
   from {
