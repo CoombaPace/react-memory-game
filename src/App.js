@@ -6,8 +6,14 @@ import BackgroundSlider from './components/BackGroundSlider/BackgroundSlider.js'
 import meChars from "./meChars.json";
 import CharCard from "./components/CharCard/CharCard.js";
 import UI_Display_bottom from './UI_Display_bottom.jpeg'
+import UI_Display_left from './UI_Display_left.jpeg'
+import UI_Displa_right from './UI_Displa_right.jpeg'
 import image1 from './images/shepardsFistBump.jpg'
 import image2 from './images/chars.jpg'
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Grid';
+import GridList from '@material-ui/core/GridList';
+
 
 
 
@@ -71,16 +77,31 @@ class App extends Component {
   // Map over this.state.meChars and render a FriendCard component for each friend object
   render() {
     return (
+		
       <Wrapper>
-        {this.state.meChars.map(meChar => (
-          <CharCard
-            setClicked={this.setClicked}
-            id={meChar.id}
-            key={meChar.id}
-            image={meChar.image}
-            name={meChar.name}
-          />
+		  <Grid container spacing={12} id="mainGrid">
+        <Grid item xs>
+			  <img className="leftSide" src={UI_Display_left} alt="headup_display" />
+        </Grid>
+        <GridList cols={3}>
+          
+			{this.state.meChars.map(meChar => (
+			<CharCard
+				setClicked={this.setClicked}
+				id={meChar.id}
+				key={meChar.id}
+				image={meChar.image}
+				name={meChar.name}
+			/>
 		))}
+		  
+        </GridList>
+        <Grid item xs>
+		  <img className="rightSide" src={UI_Displa_right} alt="headup_display" />;
+        </Grid>
+      </Grid>
+        
+
 		<div className="bottomComponents">
 			<Line 
 				className="progress-bar"
@@ -89,7 +110,7 @@ class App extends Component {
 				strokeWidth="12" 
 				strokeColor="#9ABCC2"
 				strokeLinecap="square" />
-			<img className="bottom" src={UI_Display_bottom} alt="headup_display" />;
+			<img className="bottom" src={UI_Display_bottom} alt="headup_display" />
 		</div>
 		<BackgroundSlider
 			images={[image1, image2]}

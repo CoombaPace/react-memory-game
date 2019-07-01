@@ -4,6 +4,12 @@
   margin: 0 0 0 1.5rem;
 }
 
+#mainGrid {
+  flex-wrap: nowrap;
+}
+/* .MuiGrid-container {
+  flex-wrap: noWrap;
+} */
 
 .App {
   text-align: center;
@@ -47,6 +53,14 @@ figure {
 .bottom {
   width: 600px;
 }
+
+/* .leftSide {
+  float: left;
+}
+
+.rightSide {
+  float: right;
+} */
 
 @keyframes App-logo-spin {
   from {
