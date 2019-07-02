@@ -24,7 +24,7 @@ let topScore = 0;
 let guessesCorrect = 1;
 let message = "";
 
-//sets state for our components
+// Set State
 class App extends Component {
   state = {
 		meChars,
@@ -76,33 +76,35 @@ class App extends Component {
 	};
 
 	
-  // Map over this.state.meChars and render a FriendCard component for each friend object
+  // Map over this.state.meChars and render a meChar Card component for each ME Character object in meChars.json
   render() {
     return (
 		
       <Wrapper>
 
-		  <Grid container spacing={4} id="mainGrid">
+		<Grid container spacing={4} id="mainGrid">
         	<Grid item xs>
-			  <img className="leftSide" src={UI_Display_left} alt="headup_display" />
+				<img className="leftSide" src={UI_Display_left} alt="left_display" />
         	</Grid>
 
-       	 <GridList cols={3}>
-			{this.state.meChars.map(meChar => (
-			<CharCard
-				setClicked={this.setClicked}
-				id={meChar.id}
-				key={meChar.id}
-				image={meChar.image}
-				name={meChar.name}
-			/>
-			))} 
-        </GridList>
-        <Grid item xs>
-		  <img className="rightSide" src={UI_Displa_right} alt="headup_display" />;
-        </Grid>
-      </Grid>
-	  <Grid item xs={3}>
+       	    <GridList cols={3}>
+				{this.state.meChars.map(meChar => (
+					<CharCard
+						setClicked={this.setClicked}
+						id={meChar.id}
+						key={meChar.id}
+						image={meChar.image}
+						name={meChar.name}
+					/>
+				))} 
+        	</GridList>
+
+        	<Grid item xs>
+		  		<img className="rightSide" src={UI_Displa_right} alt="right_side_display" />;
+        	</Grid>
+      	</Grid>
+
+	  	<Grid item xs={3} class="bottomGrid">
 			<Line 
 				className="progress-bar"
 				percent={this.state.guessesCorrect}
@@ -112,14 +114,14 @@ class App extends Component {
 				strokeLinecap="square" 
 			/>
 		</Grid>
-	  <Grid container spacing={3}
+	  	<Grid container spacing={3}
 			direction="row"
 			justify="center"
 			alignItems="center">
 
 		
 			<Grid item xs>
-				<img className="weapons" src={UI_weapons} alt="headup_display" />;
+				<img className="weapons" src={UI_weapons} alt="weapon_display" />;
         	</Grid>
 			
 			<Grid item xs={6}>
@@ -127,9 +129,10 @@ class App extends Component {
 			</Grid>
 
 			<Grid item xs>
-				<img className="map" src={UI_map} alt="headup_display" />;
+				<img className="map" src={UI_map} alt="map_display" />;
 			</Grid>
 		</Grid>
+
 		<BackgroundSlider
 			images={[image1, image2]}
 			duration={10} transition={2} />
