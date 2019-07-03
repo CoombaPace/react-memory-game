@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Line } from 'rc-progress';
 import './App.css';
 import Wrapper from "./components/Wrapper";
+import Header from "./components/Header/Header.js";
 import meChars from "./meChars.json";
 import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
@@ -21,7 +22,7 @@ import image2 from './images/chars.jpg'
 
 
 let topScore = 0;
-let guessesCorrect = 1;
+let guessesCorrect = 0;
 let message = "";
 
 // Set State
@@ -39,7 +40,7 @@ class App extends Component {
 
 		if (cardClicked[0].clicked) {
 
-			guessesCorrect = 1;
+			guessesCorrect = 0;
 			message = "You already clicked this! Start again.";
 
 			for (let i = 0; i < meChars.length; i++) {
@@ -54,7 +55,7 @@ class App extends Component {
     } else {
 			cardClicked[0].clicked = true;
 
-			guessesCorrect = guessesCorrect + 7.4;
+			guessesCorrect = guessesCorrect + 8;
 			message = "You did it! 12/12 correct!"
 
 			if (guessesCorrect > topScore) {
@@ -81,7 +82,10 @@ class App extends Component {
     return (
 		
       <Wrapper>
-
+		  <Header></Header>
+		{/* <div>
+              <img src="/images/me_pixel_banner.jpg" alt=""/>
+          </div> */}
 		<Grid container spacing={4} id="mainGrid">
         	<Grid item xs>
 				<img className="leftSide" src={UI_Display_left} alt="left_display" />
@@ -104,7 +108,7 @@ class App extends Component {
         	</Grid>
       	</Grid>
 
-	  	<Grid item xs={3} class="bottomGrid">
+	  	<Grid item xs={3} className="bottomGrid">
 			<Line 
 				className="progress-bar"
 				percent={this.state.guessesCorrect}
