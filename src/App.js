@@ -83,9 +83,7 @@ class App extends Component {
 		
       <Wrapper>
 		  <Header></Header>
-		{/* <div>
-              <img src="/images/me_pixel_banner.jpg" alt=""/>
-          </div> */}
+		
 		<Grid container spacing={4} id="mainGrid">
         	<Grid item xs>
 				<img className="leftSide" src={UI_Display_left} alt="left_display" />

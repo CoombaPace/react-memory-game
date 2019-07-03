@@ -45,7 +45,7 @@ export default function SimpleCard() {
         
             <CardMedia
             className={classes.media}
-            image="/images/me_pixel_title.jpeg"
+            image="./images/me_pixel_title.jpeg"
             title="mini pixel art mass effect squad mates"
             />
             <Typography className={classes.title} variant="h5" component="h2">
