@@ -29,7 +29,7 @@ function MediaCard(props) {
     >
         <CardMedia
           className={classes.media}
-          image={props.image} alt={props.name}
+          image={props.image} alt={props.charname}
         />
     </Card>
   );

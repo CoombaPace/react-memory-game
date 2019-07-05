@@ -1,4 +1,18 @@
+/* ======= Pixel Art Title ======= */
 
+.canvas {
+  /* Perfectly square */
+  width: 80px;
+  height: 80px;
+}
+
+.pixel {
+  /* We'll need 256 total pixels in our HTML */
+  width: 5px;
+  height: 5px;
+  float: left;
+}
+/* ======= /Pixel Art Title ======= */
 
 .row {
   margin: 0 0 0 1.5rem;

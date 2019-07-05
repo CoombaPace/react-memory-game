@@ -15,6 +15,7 @@ import UI_weapons from './UI_Display_weapons.jpeg'
 import UI_map from './UI_Display_map.jpeg'
 import image1 from './images/shepardsFistBump.jpg'
 import image2 from './images/chars.jpg'
+import Modal from './components/Modal/Modal'
 
 
 
@@ -24,43 +25,64 @@ import image2 from './images/chars.jpg'
 let topScore = 0;
 let guessesCorrect = 0;
 let message = "";
+let showModal = null;
 
 // Set State
 class App extends Component {
   state = {
+		showModal,
 		meChars,
 		topScore,
 		guessesCorrect,
-    message,
+		message,
 	};
+
+    handleShowMessageClick = () => this.setState({showModal: true})
+    handleCloseModal = () => this.setState({showModal: false})
 
 	setClicked = id => {
 		const meChars = this.state.meChars;
-    const cardClicked = meChars.filter(meChar => meChar.id === id);
+		const cardClicked = meChars.filter(meChar => meChar.id === id);
 
 		if (cardClicked[0].clicked) {
-
+			this.handleShowMessageClick();
+			message = `OH NO! You've already clicked ${cardClicked[0].charname}!`
 			guessesCorrect = 0;
-			message = "You already clicked this! Start again.";
 
 			for (let i = 0; i < meChars.length; i++) {
 				meChars[i].clicked = false;
 			}
 
-      this.setState({message});
-      console.log(message);
+      		this.setState({message});
+      		console.log(message);
 			this.setState({guessesCorrect:guessesCorrect});
 			this.setState({meChars});
 
-    } else {
+	} else {
 			cardClicked[0].clicked = true;
 
 			guessesCorrect = guessesCorrect + 8;
-			message = "You did it! 12/12 correct!"
+
+			message = ""
 
 			if (guessesCorrect > topScore) {
 				topScore = guessesCorrect;
 				this.setState({topScore});
+			}
+
+			if (guessesCorrect === 96) {
+				this.handleShowMessageClick();
+				message = `You did it! 12/12 correct!`
+				guessesCorrect = 0;
+
+			for (let i = 0; i < meChars.length; i++) {
+				meChars[i].clicked = false;
+			}
+
+      		this.setState({message});
+      		console.log(message);
+			this.setState({guessesCorrect:guessesCorrect});
+			this.setState({meChars});
 			}
 
 			meChars.sort((a, b) => {
@@ -68,11 +90,11 @@ class App extends Component {
 			});
 
 			this.setState({meChars});
-      this.setState({guessesCorrect});
-      console.log(this.state.guessesCorrect)
+      		this.setState({guessesCorrect});
+      		console.log(this.state.guessesCorrect)
 			this.setState({message});
     }
-    console.log(cardClicked);
+    		console.log(cardClicked);
 
 	};
 
@@ -83,7 +105,17 @@ class App extends Component {
 		
       <Wrapper>
 		  <Header></Header>
-		
+		  {/* <div class="canvas">
+  			<div class="pixel"></div>
+		  </div> */}
+		  <button onClick={this.handleShowMessageClick}>
+            Show Secret Modal
+          </button>
+          {this.state.showModal ? (
+            <Modal onClose={this.handleCloseModal}>
+				{message}
+            </Modal>
+          ) : null}
 		<Grid container spacing={4} id="mainGrid">
         	<Grid item xs>
 				<img className="leftSide" src={UI_Display_left} alt="left_display" />
@@ -96,7 +128,7 @@ class App extends Component {
 						id={meChar.id}
 						key={meChar.id}
 						image={meChar.image}
-						name={meChar.name}
+						charname={meChar.charname}
 					/>
 				))} 
         	</GridList>
