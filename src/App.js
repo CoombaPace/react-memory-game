@@ -105,12 +105,6 @@ class App extends Component {
 		
       <Wrapper>
 		  <Header></Header>
-		  {/* <div class="canvas">
-  			<div class="pixel"></div>
-		  </div> */}
-		  <button onClick={this.handleShowMessageClick}>
-            Show Secret Modal
-          </button>
           {this.state.showModal ? (
             <Modal onClose={this.handleCloseModal}>
 				{message}
