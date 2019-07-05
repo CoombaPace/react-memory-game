@@ -3,11 +3,12 @@ import { Line } from 'rc-progress';
 import './App.css';
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header/Header.js";
-import meChars from "./meChars.json";
+import Modal from './components/Modal/Modal'
 import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
 import CharCard from "./components/CharCard/CharCard.js";
 import BackgroundSlider from './components/BackGroundSlider/BackgroundSlider.js'
+import meChars from "./meChars.json";
 import UI_Display_bottom from './UI_Display_bottom.jpeg'
 import UI_Display_left from './UI_Display_left.jpeg'
 import UI_Displa_right from './UI_Displa_right.jpeg'
@@ -15,13 +16,12 @@ import UI_weapons from './UI_Display_weapons.jpeg'
 import UI_map from './UI_Display_map.jpeg'
 import image1 from './images/shepardsFistBump.jpg'
 import image2 from './images/chars.jpg'
-import Modal from './components/Modal/Modal'
 
 
 
 
 
-
+let score = 0;
 let topScore = 0;
 let guessesCorrect = 0;
 let message = "";
@@ -35,6 +35,7 @@ class App extends Component {
 		topScore,
 		guessesCorrect,
 		message,
+		score,
 	};
 
     handleShowMessageClick = () => this.setState({showModal: true})
@@ -48,25 +49,24 @@ class App extends Component {
 			this.handleShowMessageClick();
 			message = `OH NO! You've already clicked ${cardClicked[0].charname}!`
 			guessesCorrect = 0;
+			score = 0;
 
 			for (let i = 0; i < meChars.length; i++) {
 				meChars[i].clicked = false;
 			}
 
       		this.setState({message});
-      		console.log(message);
+			  console.log(message);
 			this.setState({guessesCorrect:guessesCorrect});
 			this.setState({meChars});
 
 	} else {
 			cardClicked[0].clicked = true;
+			guessesCorrect = guessesCorrect + 8; // set at 8 to fill up progress bar.
+			score++;
 
-			guessesCorrect = guessesCorrect + 8;
-
-			message = ""
-
-			if (guessesCorrect > topScore) {
-				topScore = guessesCorrect;
+			if (score > topScore) {
+				topScore = score;
 				this.setState({topScore});
 			}
 
@@ -74,13 +74,14 @@ class App extends Component {
 				this.handleShowMessageClick();
 				message = `You did it! 12/12 correct!`
 				guessesCorrect = 0;
+				score = 0;
 
 			for (let i = 0; i < meChars.length; i++) {
 				meChars[i].clicked = false;
 			}
 
       		this.setState({message});
-      		console.log(message);
+			console.log(message);
 			this.setState({guessesCorrect:guessesCorrect});
 			this.setState({meChars});
 			}
@@ -91,7 +92,8 @@ class App extends Component {
 
 			this.setState({meChars});
       		this.setState({guessesCorrect});
-      		console.log(this.state.guessesCorrect)
+			  console.log(this.state.guessesCorrect)
+			  console.log(score)
 			this.setState({message});
     }
     		console.log(cardClicked);
@@ -104,12 +106,12 @@ class App extends Component {
     return (
 		
       <Wrapper>
-		  <Header></Header>
-          {this.state.showModal ? (
-            <Modal onClose={this.handleCloseModal}>
-				{message}
-            </Modal>
-          ) : null}
+		  <Header score={score}> </Header>
+          	{this.state.showModal ? (
+				<Modal onClose={this.handleCloseModal}>
+					{message}
+				</Modal>
+			) : null}
 		<Grid container spacing={4} id="mainGrid">
         	<Grid item xs>
 				<img className="leftSide" src={UI_Display_left} alt="left_display" />

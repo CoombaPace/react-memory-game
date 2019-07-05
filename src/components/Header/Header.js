@@ -1,17 +1,20 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import "./header.css";
 
-const useStyles = makeStyles({
+
+const styles = {
   card: {
     minWidth: 275,
     width: 700,
     padding: 0,
     marginBottom: 20,
     textAlign: "center",
+    background: "none",
   },
   media: {
     height: 240,
@@ -30,31 +33,30 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 0,
   },
-});
+};
 
-export default function SimpleCard() {
-  const classes = useStyles();
+function SimpleCard(props) {
+  const {classes} = props;
   const bull = <span className={classes.bullet}>•</span>;
+  
 
   return (
     <Card className={classes.card}>
       <CardContent>
-        {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography> */}
+        <div className="glow" score={props.score}>
+          score: {props.score}
+        </div>
         
-            <CardMedia
-            className={classes.media}
-            image="./images/me_pixel_title.jpeg"
-            title="mini pixel art mass effect squad mates"
-            />
-            <Typography className={classes.title} variant="h5" component="h2">
-                {bull}
-                Memory Clicky Game
-                {bull}
-            </Typography>
+        <CardMedia
+        className={classes.media}
+        image="./images/ME_Pixel_Title.png"
+        title="mini pixel art mass effect squad mates"
+        />
+        <Typography className={classes.title} variant="h5" component="h2">
+            {bull} Memory Clicky Game {bull}
+        </Typography>
         <Typography className={classes.subText} color="textSecondary" variant="body2" component="p">
-          Click Each Image Only Once
+            Click Each Image Only Once
         </Typography>
       </CardContent>
       {/* <CardActions>
@@ -63,3 +65,5 @@ export default function SimpleCard() {
     </Card>
   );
 }
+
+export default withStyles(styles)(SimpleCard)

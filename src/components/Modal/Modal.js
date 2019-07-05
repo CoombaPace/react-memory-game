@@ -36,7 +36,6 @@ class Modal extends React.Component {
             }}
           >
             {this.props.children}
-            {this.setState.message}
             <hr />
             <button onClick={this.props.onClose}>Close</button>
           </div>
