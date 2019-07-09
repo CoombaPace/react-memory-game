@@ -45,16 +45,17 @@ class App extends Component {
 		const meChars = this.state.meChars;
 		const cardClicked = meChars.filter(meChar => meChar.id === id);
 
+		// If this Character Card has been clicked...
 		if (cardClicked[0].clicked) {
-			this.handleShowMessageClick();
-			message = `OH NO! You've already clicked ${cardClicked[0].charname}!`
-			guessesCorrect = 0;
+			this.handleShowMessageClick(); //...set showModal to true, pop it open....
+			message = `OH NO! You've already clicked ${cardClicked[0].charname}!` // ...show this message...
+			guessesCorrect = 0; // ...set these scores...
 			score = 0;
 
 			for (let i = 0; i < meChars.length; i++) {
 				meChars[i].clicked = false;
 			}
-
+			//...set these states (reset these values in this case) to restart the game.
       		this.setState({message});
 			  console.log(message);
 			this.setState({guessesCorrect:guessesCorrect});
@@ -106,7 +107,7 @@ class App extends Component {
     return (
 		
       <Wrapper>
-		  <Header score={score}> </Header>
+		  <Header score={score} topScore={topScore} className="noShadow"> </Header>
           	{this.state.showModal ? (
 				<Modal onClose={this.handleCloseModal}>
 					{message}

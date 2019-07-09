@@ -1,3 +1,14 @@
+
+.title {
+  text-shadow: -1px 1px 10px #ff0000;
+  font-size: 48px;
+}
+
+.subText {
+  text-shadow: -1px 1px 10px #ff0000;
+  font-size: 38px;
+}
+
 .glow {
     font-size: 48px;
     color: #fff;

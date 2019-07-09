@@ -3,12 +3,12 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
 import "./header.css";
 
 
 const styles = {
   card: {
+    boxShadow: "none",
     minWidth: 275,
     width: 700,
     padding: 0,
@@ -24,12 +24,6 @@ const styles = {
     margin: '0 2px',
     transform: 'scale(0.8)',
   },
-  title: {
-    fontSize: 48,
-  },
-  subText: {
-    fontSize: 30,
-  },
   pos: {
     marginBottom: 0,
   },
@@ -43,21 +37,20 @@ function SimpleCard(props) {
   return (
     <Card className={classes.card}>
       <CardContent>
-        <div className="glow" score={props.score}>
-          score: {props.score}
+        <div className="glow" score={props.score} topScore={props.topScore}>
+          score: {props.score} {bull} top score: {props.topScore}
         </div>
         
         <CardMedia
         className={classes.media}
         image="./images/ME_Pixel_Title.png"
-        title="mini pixel art mass effect squad mates"
         />
-        <Typography className={classes.title} variant="h5" component="h2">
+        <div className="title">
             {bull} Memory Clicky Game {bull}
-        </Typography>
-        <Typography className={classes.subText} color="textSecondary" variant="body2" component="p">
+        </div>
+        <div className="subText" color="textSecondary">
             Click Each Image Only Once
-        </Typography>
+        </div>
       </CardContent>
       {/* <CardActions>
         <Button size="small">Learn More</Button>
